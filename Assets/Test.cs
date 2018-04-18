@@ -15,14 +15,31 @@ public class Boss{
 	    this .hp -= damage;
 	}
 	public void Magic(int number){
-		for (int i = 0;i< number ;i++){
-			this.mp -= 5;
+		if (mp >= number) {
+			mp -= number ;
 			Debug.Log ("魔法攻撃をした。残りMPは" + mp);
-		}
-		if(mp <5){
+		} else {
 			Debug.Log ("MPが足りないため魔法が使えない");
 		}
 	}
+			
+
+
+
+	
+
+
+
+
+	//public void Magic(int number){
+	//	for (int i = 0;i< number ;i++){
+	//		this.mp -= 5;
+	//		Debug.Log ("魔法攻撃をした。残りMPは" + mp);
+	//	}
+	//	if(mp <5){
+	//		Debug.Log ("MPが足りないため魔法が使えない");
+	//	}
+	//}
 				
 				
 		
@@ -98,6 +115,9 @@ public class Test : MonoBehaviour {
 		array [2] = 3;
 		array [3] = 4;
 		array [4] = 5;
+		for (int i = 0; i < 5; i++) {
+			Debug.Log (array [i]);
+		}
 		for (int i = 4; i > -1; i--) {
 			Debug.Log (array [i]);
 		}
@@ -105,19 +125,14 @@ public class Test : MonoBehaviour {
 
 		lastboss.Attack ();
 		lastboss.Defence (3);
-		lastboss.Magic (10);
-
-				
-				
-
-			
-			
-
+		for (int i = 0; i < 11; i++) {
+			lastboss.Magic (5);
+		}														
 	}
 	
 	// Update is called once per frame
 	void Update () {
 			
-		
 	}
 }
+
